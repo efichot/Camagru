@@ -20,14 +20,20 @@
 			getURI('/', renderHome);
 			getURI('/index.php', renderHome);
 
-			//Password forgot
-			getURI('/forgot-password', renderForgot);
+			//Account forgot
+			getURI('/forgot', renderForgot);
 
 			//Success registred
 			getURI('/success', renderSuccess);
 
+			//app
+			getURI('/app', renderApp);
 
+			//gallery
+			getURI('/gallery', renderGallery);
 
+			//user
+			getURI('/user', renderUser);
 
 
 			//footer

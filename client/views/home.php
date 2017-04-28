@@ -25,7 +25,7 @@
 				<h4>Sign-in</h4>
 				<input id='login-login' type='text' name='login' value='' placeholder='Login' autocomplete='off' required/>
 				<input id='login-passwd' type='password' name='password' value='' placeholder='Password' autocomplete='off' required/>
-				<span id='forgot'><a href='forgot-password'>Forgot your account?</a></span>
+				<span id='forgot'><a href='forgot'>Forgot your account?</a></span>
 				<button id='login-button' type='submit' name='connect'><i class='fa fa-sign-in' aria-hidden='true'></i>Log in</button>
 			</form>
 
