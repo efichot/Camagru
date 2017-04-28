@@ -15,13 +15,16 @@
 	<body>
 		<?php
 			require_once(__DIR__ . '/server/render.php');
-			
+
 			//Home
 			getURI('/', renderHome);
 			getURI('/index.php', renderHome);
 
 			//Password forgot
 			getURI('/forgot-password', renderForgot);
+
+			//Success registred
+			getURI('/success', renderSuccess);
 
 
 

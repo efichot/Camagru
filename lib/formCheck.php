@@ -29,7 +29,7 @@
 	function checkMail($email) {
 		global $db;
 
-		if ($email = '' || !preg_match("/^[\w.-]+@[\w.-]+$/", $email)) {
+		if ($email == '' || !preg_match("/^[\w.-]+@[\w.-]+$/", $email)) {
 			return false;
 		}
 		$stmt = $db->prepare('SELECT email FROM users');
@@ -41,5 +41,31 @@
 			}
 		}
 		return true;
+	}
+
+	function isUserExist($login) {
+		global $db;
+
+		$stmt = $db->prepare('SELECT login FROM users WHERE login = ?');
+		$stmt->bindParam(1, $login);
+		$stmt->execute();
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+		if (isset($result['login'])) {
+			return true;
+		}
+		return false;
+	}
+
+	function passwdCheck($password, $login) {
+		global $db;
+
+		$stmt = $db->prepare('SELECT password FROM users WHERE login = ?');
+		$stmt->bindParam(1, $login);
+		$stmt->execute();
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+		if (password_verify($password, $result['password'])) {
+			return true;
+		}
+		return false;
 	}
  ?>

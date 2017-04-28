@@ -10,4 +10,8 @@
 		renderTemplate(__DIR__ . '/../client/views/forgot.php');
 	}
 
+	function renderSuccess() {
+		renderTemplate(__DIR__ . '/../client/views/success.php');
+	}
+
  ?>

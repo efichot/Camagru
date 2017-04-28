@@ -2,6 +2,7 @@
 	require_once(__DIR__ . '/../config/database.php');
 	require_once(__DIR__ . '/../lib/formCheck.php');
 	require_once(__DIR__ . '/../lib/sendMail.php');
+	require_once(__DIR__ . '/../lib/redirect.php');
 
 	session_start();
 
@@ -33,7 +34,7 @@
 		$stmt->bindParam(':email', $_POST['email']);
 		$stmt->execute();
 		sendSubscriptionMail($_POST['login'], $_POST['email']);
-		header('Location: /Camagru/success');
+		//redirect('/Camagru/success', 0);
 	} else {
 		header('Location: /Camagru/');
 	}

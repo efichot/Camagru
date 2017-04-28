@@ -14,16 +14,16 @@
 
 		$validateURL = 'http://' . $_SERVER['HTTP_HOST'] . $rootURI . 'validate/' . $login . '/' . $result['password'];
 
-		$subject = 'Camagru - Valider votre inscription';
-		$message = '<html><head><title>Camagru - Valider votre inscription</title></head>
-		<body>
-			<h4>Bonjour, ' . $login . '.</h4>
-			<p>Bienvenue sur Camagru ! Pour valider votre inscription, cliquez <a href="' . $validateURL . '" target="_blank">ici</a>.</p>
-		</body></html>';
-		$header = 'MIME-Version 1.0' . '\r\n';
-		$header .= 'Content-type: text/html; charset=iso-8859-1' . '\r\n';
-		$header .= 'To: ' . $login . ' <' . $email . '>' . '\r\n';
-		$header .= 'From: Camagru app <noreply@camagru.app>' . '\r\n';
+		$subject = 'Camagru - Validez votre inscription';
+		$message = '<html><head><title>Camagru - Validez votre inscription</title></head>
+			<body><h4>Bonjour, <strong>' . $login . '</strong>.</h4>
+				<p>Bienvenue sur Camagru ! Pour valider votre inscription, cliquez <a href="' . $validateURL . '" target="_blank">ici</a>.</p>
+			</body>
+		</html>';
+		$header  = 'MIME-Version: 1.0' . "\r\n";
+		$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+		$header .= 'To: ' . $login . ' <' . $email . '>' . "\r\n";
+		$header .= 'From: Camagru App <noreply@camagru.app>' . "\r\n";
 
 		mail($email, $subject, $message, $header);
 	}
