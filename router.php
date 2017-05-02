@@ -40,8 +40,6 @@
 
 			//footer
 			require_once(__DIR__ . '/client/includes/footer.php');
-			//script
-			require_once(__DIR__ . '/client/includes/script.php');
 		?>
 	</body>
 </html>

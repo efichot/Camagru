@@ -33,3 +33,4 @@
 		</div>
 	</div>
 </div>
+<script type='text/javascript' src='./public/js/home.js'></script>

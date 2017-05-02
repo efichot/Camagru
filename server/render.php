@@ -19,6 +19,7 @@
 	}
 
 	function renderApp() {
+		
 		renderTemplate(__DIR__ . '/../client/views/app.php');
 	}
 

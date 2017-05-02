@@ -13,8 +13,6 @@
 		<?php
 			//footer
 			require_once(__DIR__ . '/footer.php');
-			//script
-			require_once(__DIR__ . '/script.php');
 		 ?>
 	</body>
 </html>

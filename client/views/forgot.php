@@ -10,3 +10,4 @@
 		<p>SUCCESS ! Check your emails !</p>
 	</div>
 </div>
+<script type='text/javascript' src='./public/js/forgot.js'></script>
