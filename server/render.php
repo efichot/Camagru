@@ -29,4 +29,8 @@
 	function renderUser() {
 		renderTemplate(__DIR__ . '/../client/views/user.php');
 	}
+
+	function renderRegistred() {
+		renderTemplate(__DIR__ . '/../client/includes/registred.php');
+	}
  ?>

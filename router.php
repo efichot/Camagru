@@ -35,6 +35,8 @@
 			//user
 			getURI('/user', renderUser);
 
+			// not registred
+			getURI('/registred', renderRegistred);
 
 			//footer
 			require_once(__DIR__ . '/client/includes/footer.php');

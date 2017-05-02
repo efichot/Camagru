@@ -1,22 +1,27 @@
 <?php
+	session_start();
+	require_once(__DIR__ . '/../../lib/requireAuth.php');
+	requireAuth();
+
 	$page = 'app';
 
 	require_once(__DIR__ . '/../includes/nav.php');
 
  ?>
+
 <div class='main app'>
 	<div class='top-app'>
 		<div id='top-left-app' class='webcam'>
 			<img id='Troll' src='./public/img/troll.png' />
 			<img id='nyancat' src='./public/img/nyancat.png' />
 			<!-- if camera available -->
-			<video id='camera' width='100%' autoplay></video>
+			<video id='camera' width="640" height="480" autoplay></video>
 			<!-- else -->
 			<img class='hidden' id='top-left-img' src='' alt='top-left-img' />
 		</div>
 		<div id='top-right-app' class='preview'>
 			<!-- hidden -->
-			<canvas class='hidden' id='canvas' width='' height=''></canvas>
+			<canvas class='hidden' id='canvas' width='640' height='480'></canvas>
 			<!-- else if uploaded image -->
 			<img class='hidden' id='return-img' src='' alt='return-img' />
 		</div>
