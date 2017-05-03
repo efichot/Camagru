@@ -38,6 +38,11 @@
 			// not registred
 			getURI('/registred', renderRegistred);
 
+			//single img
+			if ($requestData[0] = 'single') {
+				renderSingle();
+			}
+
 			//footer
 			require_once(__DIR__ . '/client/includes/footer.php');
 		?>

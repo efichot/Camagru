@@ -60,7 +60,7 @@ function isNoWebcam(error) {
 			});
 			reader.readAsDataURL(file);
 		}
-	})
+	});
 }
 
 // Trigger photo take
@@ -72,5 +72,17 @@ document.querySelector("#snap").addEventListener("click", function() {
 		data.size.width = topLeftIMG.width;
 		data.size.height = topLeftIMG.height;
 	}
+	var rootURI = '/' + location.pathname.split('/')[1]; // /camagru
 	//XMLHttpRequest
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', rootURI + '/server/saveImage.php');
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); //because POST method
+	xhr.send(JSON.stringify(data));
+	xhr.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) { //response ready
+			//console.log(xhr.responseText);
+			returnIMG.src = xhr.responseText;
+			returnIMG.style.display = 'block';
+		}
+	};
 });

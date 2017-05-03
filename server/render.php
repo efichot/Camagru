@@ -1,5 +1,6 @@
 <?php
 	require_once(__DIR__ . '/../lib/renderTemplate.php');
+	require_once(__DIR__ . '/../config/database.php');
 
 	//render login home
 	function renderHome() {
@@ -19,7 +20,6 @@
 	}
 
 	function renderApp() {
-		
 		renderTemplate(__DIR__ . '/../client/views/app.php');
 	}
 
@@ -33,5 +33,9 @@
 
 	function renderRegistred() {
 		renderTemplate(__DIR__ . '/../client/includes/registred.php');
+	}
+
+	function renderSingle() {
+		renderTemplate(__DIR__ . '/../client/views/single.php');
 	}
  ?>

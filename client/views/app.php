@@ -5,6 +5,14 @@
 
 	$page = 'app';
 
+	require_once(__DIR__ . '/../../config/database.php');
+
+	//retrieve 4 last pics
+	global $db;
+	$stmt = $db->prepare('SELECT id, base_64 FROM img ORDER BY dates desc LIMIT 4');
+	$stmt->execute();
+	$results = $stmt->fetchall(PDO::FETCH_ASSOC);
+
 	require_once(__DIR__ . '/../includes/nav.php');
 
  ?>
@@ -46,8 +54,15 @@
 		</div>
 		<div id='bottom-right-app' class='last-taken'>
 			<?php
-				
-			 ?>
+				if (isset($results)) {
+					foreach ($results as $img) { ?>
+						<div class='gallery-single-small' id='<?php echo $img['id']; ?>'>
+							<a href='single/<?php echo $img['id']; ?>'>
+								<img src='<?php echo $img['base_64']; ?>' alt='img-<?php echo $img['id']; ?>'/>
+							</a>
+						</div>
+				<?php }
+				} ?>
 		</div>
 	</div>
 </div>
