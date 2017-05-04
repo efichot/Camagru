@@ -22,7 +22,7 @@
 
 	require_once(__DIR__ . '/../includes/nav.php');
 
- ?>
+?>
 
 <div class='gallery'>
   <?php if (isset($results)) {
@@ -37,4 +37,4 @@
 	} ?>
 </div>
 
- <script type='text/javascript' src='./public/js/user.js'></script>
+<script type='text/javascript' src='./public/js/user.js'></script>

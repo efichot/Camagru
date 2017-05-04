@@ -39,8 +39,8 @@
 			getURI('/registred', renderRegistred);
 
 			//single img
-			if ($requestData[0] = 'single') {
-				renderSingle();
+			if ($requestData[0] === 'single') {
+				renderSingle(__DIR__ . '/client/views/single.php');
 			}
 
 			//footer

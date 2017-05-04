@@ -1,6 +1,7 @@
 <?php
 	require_once(__DIR__ . '/../config/database.php');
 	require_once(__DIR__ . '/../lib/formCheck.php');
+	require_once(__DIR__ . '/../lib/function.php');
 
 	session_start();
 
@@ -8,6 +9,7 @@
 		if (isUserExist($_POST['login'])) {
 			if (passwdCheck($_POST['password'], $_POST['login'])) {
 				$_SESSION['login'] = $_POST['login'];
+				$_SESSION['email'] = retrieveEmail($_POST['login']);
 				$_SESSION['is_connected'] = true;
 				header('Location: /Camagru/app');
 				die();

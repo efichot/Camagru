@@ -31,9 +31,9 @@
 							<li class='likes-nb'><i class="fa fa-heart" aria-hidden="true"></i><?php echo $photo['likes'] ?></li>
 				  <?php } ?>
 				  <?php if ($photo['comments_nb'] == 0) { ?>
-						 	<li class='likes-nb'><i class="fa fa-comment-o" aria-hidden="true"></i><?php echo $photo['comments_nb'] ?></li>
+							<li class='comments-nb'><i class="fa fa-comment-o" aria-hidden="true"></i><?php echo $photo['comments_nb'] ?></li>
 				  <?php } else { ?>
-						 	<li class='likes-nb'><i class="fa fa-comment" aria-hidden="true"></i><?php echo $photo['comments_nb'] ?></li>
+							<li class='comments-nb'><i class="fa fa-comment" aria-hidden="true"></i><?php echo $photo['comments_nb'] ?></li>
 				  <?php } ?>
 					</ul>
 				</div>
