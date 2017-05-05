@@ -34,13 +34,14 @@ body {
 }
 
 h1 {
-	color: rgb(241, 138, 30);
 	text-align: center;
 	font-size: 60px;
+	color: rgb(224, 46, 28);
 }
 
 .bold {
 	font-size: 50px;
+	color: rgb(241, 138, 30);
 }
 
 .home .form h4 {
