@@ -1,7 +1,4 @@
 <div class='home'>
-	<div class='left img-home'>
-		<img src='https://s-media-cache-ak0.pinimg.com/originals/58/27/9e/58279e7fa9fee54c4791282642e586ef.jpg' alt='home picture' />
-	</div>
 	<div class='right home-right'>
 		<div class='form'>
 			<h1>C<span class='bold'>A</span>M<span class='bold'>A</span>G<span class='bold'>R</span>U</h1>
@@ -9,7 +6,7 @@
 			<!-- Subsription form -->
 			<form id='subscription' method='post' action='./server/subscription.php'>
 				<h4>Sign up</h4>
-				<button type='button' name='facebook connect'><i class='fa fa-facebook-official' aria-hidden='true'></i>Log in with Facebook</button>
+				<button type='button' id='facebook' name='facebook connect'><i class='fa fa-facebook-official' aria-hidden='true'></i>Log in with Facebook</button>
 
 				<span class='hr'><p class='or'>OR</p></span>
 
@@ -25,7 +22,7 @@
 				<h4>Sign-in</h4>
 				<input id='login-login' type='text' name='login' value='' placeholder='Login' autocomplete='off' required/>
 				<input id='login-passwd' type='password' name='password' value='' placeholder='Password' autocomplete='off' required/>
-				<span id='forgot'><a href='forgot'>Forgot your account?</a></span>
+				<span ><a id='forgot' href='forgot'>Forgot your account?</a></span>
 				<button id='login-button' type='submit' name='connect'><i class='fa fa-sign-in' aria-hidden='true'></i>Log in</button>
 			</form>
 

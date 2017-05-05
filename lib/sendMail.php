@@ -46,7 +46,7 @@
 			<h4>Bonjour, ' . $login . '.</h4>
 			<p>Pour changer votre mot de passe, cliquez <a href="' . $validateURL . '" target="_blank">ici</a>.</p>
 		</body></html>';
-		$header = 'MIME-Version 1.0' . '\r\n';
+		$header = 'MIME-Version: 1.0' . '\r\n';
 		$header .= 'Content-type: text/html; charset=iso-8859-1' . '\r\n';
 		$header .= 'To: ' . $login . ' <' . $email . '>' . '\r\n';
 		$header .= 'From: Camagru app <noreply@camagru.app>' . '\r\n';

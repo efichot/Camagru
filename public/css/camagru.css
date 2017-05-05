@@ -1,0 +1,259 @@
+/********************
+        HOME
+*********************/
+
+body {
+	background-color: #111;
+	color: #ddd;
+	font-family: 'Copse', serif;
+	text-shadow: 0px 0px 1px #ddd;
+	background-image: url('https://s-media-cache-ak0.pinimg.com/originals/58/27/9e/58279e7fa9fee54c4791282642e586ef.jpg');
+	background-repeat: repeat;
+}
+
+.home, .gallery, .forgot, .success, .user {
+	max-width: 1000px;
+	width: 100%;
+	margin: 19% auto;
+}
+
+.home .home-right {
+	justify-content: center;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.form, .gallery, .forgot, .success, .user {
+	width: 100%;
+	background-color: #222;
+	border: 1px solid #999;
+	border-radius: 5px;
+	box-shadow: 0px 0px 12px #bbb;
+	padding-top: 8px;
+	padding-bottom: 20px;
+}
+
+h1 {
+	color: rgb(241, 138, 30);
+	text-align: center;
+	font-size: 60px;
+}
+
+.bold {
+	font-size: 50px;
+}
+
+.home .form h4 {
+	font-size: 25px;
+	font-weight: 600px;
+	line-height: 20px;
+	margin: 60px 10px;
+	text-align: center;
+}
+
+button {
+	margin: 8px 40px;
+	color: #FFF;
+	line-height: 29px;
+	padding: 0 11px;
+	cursor: pointer;
+	background-color: rgb(88, 165, 241);
+	border: 1px solid #1772C7;
+	box-shadow: 0px 0px 12px #1772C7;
+	border-radius: 5px;
+	font-size: 14px;
+	outline: none;
+	width: 350px;
+	height: 60px;
+}
+
+form {
+	min-width: 1000px;
+}
+
+#facebook {
+	background-color: rgb(27, 116, 249);
+	width: 400px;
+	height: 80px;
+}
+
+#facebook, #signup-button, #login-button, #submit-com, #snap, #forgot {
+	display: block;
+	margin: auto;
+	font-size: 20px;
+	letter-spacing: 3px;
+}
+
+p {
+	font-size: 14px;
+	line-height: 18px;
+	margin: 40px 60px;
+	text-align: center;
+	letter-spacing: 2px;
+}
+
+input {
+	width: 400px;
+	margin: 5px auto;
+	text-align: center;
+	display: block;
+	background-color: #fdfdfd;
+	border: 1px solid #edeeee;
+	border-radius: 3px;
+	font-size: 14px;
+	padding: 9px 8px 7px;
+	-webkit-appearance: none;
+	outline: none;
+}
+
+a {
+	display: block;
+	padding: 2px 20px;
+	text-align: center;
+	text-decoration: none;
+	margin: 20px;
+	font-size: 20px;
+	color: rgb(86, 129, 240);
+}
+
+#forgot:hover {
+	color: rgb(12, 78, 189);
+}
+
+
+
+/***********************
+        FOOTER
+***********************/
+
+footer {
+	float: right;
+}
+
+ul {
+	list-style-type: none;
+}
+
+
+/*********************
+        SUCCESS
+*********************/
+
+h1, h2, h3 {
+	text-align: center;
+}
+
+/********************
+        NAV
+********************/
+
+#logout {
+	color: #ddd;
+	font-size: 30px;
+}
+
+#btn-logout {
+	margin: 8px 40px;
+	color: #FFF;
+	line-height: 29px;
+	padding: 0px 11px;
+	cursor: pointer;
+	background-color: rgb(231, 44, 32);
+	border: 1px solid #d60303;
+	box-shadow: 0px 0px 12px rgb(245, 23, 23);
+	border-radius: 5px;
+	font-size: 14px;
+	outline: none;
+	width: 350px;
+	height: 60px;
+	display: block;
+	margin: auto;
+}
+
+li {
+	width: 80%;
+	background-color: #222;
+	border: 1px solid #999;
+	border-radius: 5px;
+	box-shadow: 0px 0px 12px #bbb;
+	padding: 8px;
+	margin: 10px auto;
+}
+
+.active a {
+	color: rgb(182, 0, 55);
+}
+
+.hidden {
+	display: none;
+}
+
+
+/**************************
+         GALLERY
+**************************/
+
+img {
+	width: 100%;
+	border-radius: 5px;
+}
+
+
+
+/*************************
+          SINGLE
+**************************/
+
+.likes-nb {
+	width: 8%;
+	display: inline-block;
+	margin: 1% 19%;
+}
+
+textarea {
+	border-radius: 5px;
+	width: 90%;
+	display: block;
+	margin: 15px auto;
+	font-size: 15px;
+}
+
+.author, .date {
+	width: 30%;
+	display:inline-block;
+	margin: 1% 8%;
+}
+
+/*************************
+          APP
+**************************/
+
+#snap {
+	background-color: rgb(53, 154, 37);
+	border: 1px solid #177504;
+	box-shadow: 0px 0px 12px rgb(0, 157, 25);
+}
+
+#tab-filters, #tab-obj {
+	text-align: center;
+	font-size: 30px;
+}
+
+.objects li {
+	width: 15%;
+	display: inline-block;
+	margin: 2% 2%;
+}
+
+#camera {
+	width: 90%;
+	border-radius: 5px;
+	display: block;
+	margin: auto;
+}
+
+.gallery-single-small {
+	width: 40%;
+	display: inline-block;
+	margin: 1% 4.5%;
+}
