@@ -31,7 +31,9 @@
 				<a href='single/<?php echo $photo['id'] ?>'>
 					<img src='<?php echo $photo['base_64'] ?>' alt='img-<?php echo $photo['id'] ?>'/>
 				</a>
-				<i class="fa fa-trash" aria-hidden="true"></i>
+				<ul>
+					<li id='trash'><i class="fa fa-5x fa-trash" aria-hidden="true"></i></li>
+				</ul>
 			</div>
 <?php	}
 	} ?>

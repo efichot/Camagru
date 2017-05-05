@@ -1,6 +1,8 @@
 <?php
 	require_once(__DIR__ . '/../config/database.php');
 	require_once(__DIR__ . '/../lib/redirect.php');
+	require_once(__DIR__ . '/../lib/function.php');
+	require_once(__DIR__ . '/../lib/sendMail.php');
 
 	$content = htmlentities($_POST['content']); //convert special caracters for html inclusion
 	$img_id = $_POST['img_id'];
@@ -28,5 +30,16 @@
 	$stmt->bindParam(2, $img_id);
 	$stmt->execute();
 
+	//inform user
+	$stmt = $db->prepare('SELECT user_id FROM img WHERE id = ?');
+	$stmt->bindParam(1, $img_id);
+	$stmt->execute();
+	$result = $stmt->fetch(PDO::FETCH_ASSOC);
+	// if the user is different from poster
+	if ($result['user_id'] != $user_id) {
+		$login = retrieveLoginAndMail($result['user_id'])['login'];
+		$email = retrieveLoginAndMail($result['user_id'])['email'];
+		sendInformativeMail($login, $email);
+	}
 	redirect('/camagru/single/' . $img_id, 0);
 ?>

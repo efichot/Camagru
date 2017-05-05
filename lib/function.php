@@ -22,4 +22,14 @@
 		$id = $user['id'];
 		return $id;
 	}
+
+	function retrieveLoginAndMail($id) {
+		global $db;
+
+		$stmt = $db->prepare('SELECT login, email FROM users WHERE id = ?');
+		$stmt->bindParam(1, $id);
+		$stmt->execute();
+		$user = $stmt->fetch(PDO::FETCH_ASSOC);
+		return $user;
+	}
  ?>

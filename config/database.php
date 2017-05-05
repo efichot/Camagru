@@ -1,7 +1,13 @@
 <?php
-	$DB_DSN = 'mysql:host=sql11.freemysqlhosting.net;dbname=sql11171148;charset=utf8';
-	$DB_USER = 'sql11171148';
-	$DB_PASSWORD = 'JPuEfZ9Kbv';
+	// yasser.an@6.emailfake.ml
+	// Server: sql11.freemysqlhosting.net
+	// Name: sql11172924
+	// Username: sql11172924
+	// Password: 8VZdd43tFI
+
+	$DB_DSN = 'mysql:host=sql11.freemysqlhosting.net;dbname=sql11172924;charset=utf8';
+	$DB_USER = 'sql11172924';
+	$DB_PASSWORD = '8VZdd43tFI';
 
 	try {
 		$db = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
