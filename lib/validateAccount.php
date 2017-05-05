@@ -1,0 +1,23 @@
+<?php
+	require_once(__DIR__ . '/../config/database.php');
+	require_once(__DIR__ . '/redirect.php');
+	require_once(__DIR__ . '/renderTemplate.php');
+
+	function validateAccount($login, $passHash) {
+		global $db;
+
+		$stmt = $db->prepare('SELECT password FROM users WHERE login = ?');
+		$stmt->bindParam(1, $login);
+		$stmt->execute();
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+		//check if the passwordhash match (care to '/' in the url)
+		if (explode('/', $result['password'])[0] === explode('/', $passHash)[0]) {
+			$stmt = $db->prepare('UPDATE users SET registred = 1 WHERE login = ?');
+			$stmt->bindParam(1, $login);
+			$stmt->execute();
+			redirect('/camagru', 0);
+		} else {
+			renderTemplate(__DIR__ . '/../client/includes/error.php');
+		}
+	}
+ ?>

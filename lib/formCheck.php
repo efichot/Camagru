@@ -68,4 +68,17 @@
 		}
 		return false;
 	}
+
+	function mailRegistredDone($login) {
+		global $db;
+
+		$stmt = $db->prepare('SELECT registred FROM users WHERE login = ?');
+		$stmt->bindParam(1, $login);
+		$stmt->execute();
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+		if ($result['registred']) {
+			return true;
+		}
+		return false;
+	}
  ?>

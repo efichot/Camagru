@@ -43,6 +43,12 @@
 				renderSingle(__DIR__ . '/client/views/single.php');
 			}
 
+			require_once(__DIR__ . '/lib/validateAccount.php');
+			//validate account
+			if ($requestData[0] === 'validate') {
+				validateAccount($requestData[1], $requestData[2]);
+			}
+
 			//footer
 			require_once(__DIR__ . '/client/includes/footer.php');
 		?>

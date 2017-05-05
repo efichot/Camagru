@@ -6,7 +6,7 @@
 	session_start();
 
 	if (isset($_POST['login']) && isset($_POST['password'])) {
-		if (isUserExist($_POST['login'])) {
+		if (isUserExist($_POST['login']) && mailRegistredDone($_POST['login'])) {
 			if (passwdCheck($_POST['password'], $_POST['login'])) {
 				$_SESSION['login'] = $_POST['login'];
 				$_SESSION['email'] = retrieveEmail($_POST['login']);
