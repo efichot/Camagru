@@ -15,6 +15,8 @@ var topLeftIMG = document.querySelector('#top-left-img');
 var returnIMG = document.querySelector('#return-img');
 // Webcam active ou pas
 var webcam = true;
+// div logo
+var div = document.querySelector('#logo');
 
 // Get access to the camera!
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -39,8 +41,22 @@ var data = {
 	'size' : {
 		'width' : canvasWidth,
 		'height' : canvasHeight
-	}
+	},
+	'logo' : {
+		'name' : '',
+		'x' : '',
+		'y' : ''
+	},
+	'filter' : ''
 };
+
+[].forEach.call(photos, function (single) {
+	single.addEventListener('click', function () {
+		data.logo.name = single.classList[2]; //name of object
+		data.logo.x = div.style.left;
+		data.logo.y = div.style.top;
+	})
+});
 
 function isNoWebcam(error) {
 	webcam = false;
@@ -81,7 +97,7 @@ document.querySelector("#snap").addEventListener("click", function() {
 	xhr.send(JSON.stringify(data));
 	xhr.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) { //response ready
-			//console.log(xhr.responseText);
+			console.log(xhr.responseText);
 			returnIMG.src = xhr.responseText;
 			returnIMG.style.display = 'block';
 		}

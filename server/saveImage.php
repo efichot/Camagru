@@ -1,12 +1,21 @@
 <?php
 	require_once(__DIR__ . '/../config/database.php');
+	require_once(__DIR__ . '/../lib/imageLib.php');
+
+	ini_set('memory_limit', '-1');
 
 	session_start();
 
 	$data = json_decode(file_get_contents('php://input'));
-	//echo var_dump($data);
 	$base64 = explode(',', $data->img)[1]; //remove the content-type data:image/jpeg;base64,
 	$img = imagecreatefromstring(base64_decode($base64)); //create img
+
+	// if logo
+	if ($data->logo->name !== '') {
+		$logo = imagecreatefrompng(__DIR__ . '/../public/img/' . $data->logo->name . '.png');
+		imageMerge($img, $logo, intval($data->logo->x), intval($data->logo->y) - 600, $data->size->width, $data->size->height);
+		imagedestroy($logo);
+	}
 
 	ob_start();
 	imagejpeg($img); //display image to browser

@@ -28,7 +28,9 @@
 		<div id='top-right-app' class='preview'>
 			<!-- hidden -->
 			<canvas class='hidden' id='canvas' width='' height=''></canvas>
-			<!-- else if uploaded image -->
+			<!-- div for image -->
+			<div id='logo' style='position:absolute;width:200px;height:200px;z-index:100;top:600px;left:0px;background:url("");background-size:cover;'>
+			</div>
 		</div>
 	</div>
 	<div class='bottom-app'>
@@ -47,7 +49,7 @@
 							<li><img class='object action palmier' src='./public/img/palmier.png' /></li>
 							<li><img class='object action smiley' src='./public/img/smiley.png' /></li>
 							<li><img class='object action Thug-life' src='./public/img/Thug-life.png' /></li>
-							<li><img class="object action bob-l'eponge" src="./public/img/bob-l'eponge.png" /></li>
+							<li><img class='object action bob-eponge' src='./public/img/bob-eponge.png' /></li>
 							<li><img class='object action grenouille' src='./public/img/grenouille.png' /></li>
 							<li><img class='object action Pedobear' src='./public/img/Pedobear.png' /></li>
 							<button type='button' class='btn disabled' id='snap' disabled>Take snapshot</button>
@@ -109,6 +111,6 @@
 		</div>
 	</div>
 </div>
-<script type='text/javascript' src='./public/js/app.js'></script>
 <script type='text/javascript' src='./public/js/filter.js'></script>
 <script type='text/javascript' src='./public/js/action.js'></script>
+<script type='text/javascript' src='./public/js/app.js'></script>
