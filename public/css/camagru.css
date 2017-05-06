@@ -78,7 +78,7 @@ form {
 	height: 80px;
 }
 
-#facebook, #signup-button, #login-button, #submit-com, #forgot {
+#facebook, #signup-button, #login-button, #submit-com, #forgot, #submit-pass {
 	display: block;
 	margin: auto;
 	font-size: 20px;

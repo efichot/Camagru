@@ -35,11 +35,11 @@
 		$stmt->execute();
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-		$validateURL = 'http://' . $_SERVER['HTTP_HOST'] . $rootURI . 'change-password/' . $login . '/' . $result['password'];
+		$validateURL = 'http://' . $_SERVER['HTTP_HOST'] . '/camagru/change-password/' . $login . '/' . $result['password'];
 
 		$subject = 'Camagru - Modifier votre mot de passe';
 		$message = 'Camagru - Modifier votre mot de passe
-		Bonjour, ' . $login . ' Pour changer votre mot de passe, cliquez ' . $validateURL;
+		Bonjour, votre login est: ' . $login . '\nPour changer votre mot de passe, cliquez ' . $validateURL;
 		$header = 'MIME-Version: 1.0' . '\r\n';
 		$header .= 'Content-type: text/html; charset=iso-8859-1' . '\r\n';
 		$header .= 'To: ' . $login . ' <' . $email . '>' . '\r\n';

@@ -1,22 +1,33 @@
 <?php
 	require_once(__DIR__ . '/../config/database.php');
-	require_once(__DIR__ . '/../lib/renderTemplate.php');
-	require_once(__DIR__ . '/../lib/sendMail.php');
-	require_once(__DIR__ . '/../lib/formCheck.php');
 	require_once(__DIR__ . '/../lib/redirect.php');
+	require_once(__DIR__ . '/../lib/formCheck.php');
+	require_once(__DIR__ . '/../lib/renderTemplate.php');
 
-	if (isset($_POST['email'])) {
-		global $db;
+	global $db;
 
-		if (checkMail($_POST['email']) || !preg_match("/^[\w.-]+@[\w.-]+$/", $_POST['email'])) {
-			renderTemplate(__DIR__ . '/../client/includes/error.php');
-		} else {
-			$stmt = $db->prepare('SELECT login, email FROM users WHERE email = ?');
-			$stmt->bindParam(1, $_POST['email']);
+	if (isset($_POST['password']) && isset($_POST['password-check']) && isset($_POST['login']) && isset($_POST['old-password'])) {
+		if (isUserExist($_POST['login']) && checkPasswdMatches($_POST['password'], $_POST['password-check'])) {
+			$stmt = $db->prepare('SELECT password FROM users WHERE login = ?');
+			$stmt->bindParam(1, $_POST['login']);
 			$stmt->execute();
 			$result = $stmt->fetch(PDO::FETCH_ASSOC);
-			sendRecoverMail($result['login'], $result['email']);
-			redirect('/Camagru', 0);
+			if (explode('/', $result['password'])[0] === explode('/', $_POST['old-password'])[0]) {
+				$stmt = $db->prepare('UPDATE users SET password = ? WHERE login = ?');
+				$stmt->bindParam(1, password_hash($_POST['password'],PASSWORD_DEFAULT));
+				$stmt->bindParam(2, $_POST['login']);
+				$stmt->execute();
+				redirect('/camagru/', 0);
+			} else {
+				echo '11';
+				renderTemplate(__DIR__ . '/../client/includes/error.php');
+			}
+		} else {
+			echo '22';
+			renderTemplate(__DIR__ . '/../client/includes/error.php');
 		}
+	} else {
+		echo '33';
+		renderTemplate(__DIR__ . '/../client/includes/error.php');
 	}
- ?>
+?>

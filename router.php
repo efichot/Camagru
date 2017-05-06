@@ -46,7 +46,11 @@
 			require_once(__DIR__ . '/lib/validateAccount.php');
 			//validate account
 			if ($requestData[0] === 'validate') {
-				validateAccount($requestData[1], $requestData[2]);
+				addRegistredUser($requestData[1], $requestData[2]);
+			}
+			//Change password
+			if ($requestData[0] === 'change-password') {
+				changePassword($requestData[1], $requestData[2]);
 			}
 
 			//footer
