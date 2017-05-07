@@ -16,7 +16,8 @@
 		user_id INT UNSIGNED NOT NULL,
 		likes INT NOT NULL DEFAULT 0,
 		dates TIMESTAMP NOT NULL DEFAULT now(),
-		comments_nb INT NOT NULL DEFAULT 0)'
+		comments_nb INT NOT NULL DEFAULT 0,
+		filter VARCHAR(255) NOT NULL DEFAULT "")'
 	);
 
 	$comments = $db->query('CREATE TABLE IF NOT EXISTS comments

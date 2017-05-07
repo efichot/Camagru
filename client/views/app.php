@@ -6,6 +6,7 @@
 	$page = 'app';
 
 	require_once(__DIR__ . '/../../config/database.php');
+	require_once(__DIR__ . '/../../lib/imageLib.php');
 
 	//retrieve 4 last pics
 	global $db;
@@ -59,30 +60,30 @@
 				<li id='tab-filters'>
 					Filters
 					<div id='filters'>
-						<button class="action " id="Normal" type="button" name="Normal">Normal</button>
-						<button class="action _1977" id="1977" type="button" name="1977">1977</button>
-						<button class="action aden" id="Aden" type="button" name="Aden">Aden</button>
-						<button class="action brooklyn" id="Brooklyn" type="button" name="Brooklyn">Brooklyn</button>
-						<button class="action clarendon" id="Clarendon" type="button" name="Clarendon">Clarendon</button>
-						<button class="action earlybird" id="Earlybird" type="button" name="Earlybird">Earlybird</button>
-						<button class="action gingham" id="Gingham" type="button" name="Gingham">Gingham</button>
-						<button class="action Hudson" id="Hudson" type="button" name="Hudson">Hudson</button>
-						<button class="action inkwell" id="Inkwell" type="button" name="Inkwell">Inkwell</button>
-						<button class="action lark" id="Lark" type="button" name="Lark">Lark</button>
-						<button class="action lofi" id="Lo-Fi" type="button" name="Lo-Fi">Lo-Fi</button>
-						<button class="action mayfair" id="Mayfair" type="button" name="Mayfair">Mayfair</button>
-						<button class="action moon" id="Moon" type="button" name="Moon">Moon</button>
-						<button class="action nashville" id="Nashville" type="button" name="Nashville">Nashville</button>
-						<button class="action perpetua" id="Perpetua" type="button" name="Perpetua">Perpetua</button>
-						<button class="action reyes" id="Reyes" type="button" name="Reyes">Reyes</button>
-						<button class="action rise" id="Rise" type="button" name="Rise">Rise</button>
-						<button class="action slumber" id="Slumber" type="button" name="Slumber">Slumber</button>
-						<button class="action toaster" id="Toaster" type="button" name="Toaster">Toaster</button>
-						<button class="action walden" id="Walden" type="button" name="Walden">Walden</button>
-						<button class="action willow" id="Willow" type="button" name="Willow">Willow</button>
-						<button class="action xpro2" id="X-pro-II" type="button" name="X-pro-II">X-pro II</button>
-						<button class="action sepia" id="Sepia" type="button" name="Sepia">Sepia</button>
-						<button class="action blur" id="Blur" type="button" name="Blur">Blur</button>
+						<button class="filter action " id="Normal" type="button" name="Normal">Normal</button>
+						<button class="filter action _1977" id="1977" type="button" name="1977">1977</button>
+						<button class="filter action aden" id="Aden" type="button" name="Aden">Aden</button>
+						<button class="filter action brooklyn" id="Brooklyn" type="button" name="Brooklyn">Brooklyn</button>
+						<button class="filter action clarendon" id="Clarendon" type="button" name="Clarendon">Clarendon</button>
+						<button class="filter action earlybird" id="Earlybird" type="button" name="Earlybird">Earlybird</button>
+						<button class="filter action gingham" id="Gingham" type="button" name="Gingham">Gingham</button>
+						<button class="filter action Hudson" id="Hudson" type="button" name="Hudson">Hudson</button>
+						<button class="filter action inkwell" id="Inkwell" type="button" name="Inkwell">Inkwell</button>
+						<button class="filter action lark" id="Lark" type="button" name="Lark">Lark</button>
+						<button class="filter action lofi" id="Lo-Fi" type="button" name="Lo-Fi">Lo-Fi</button>
+						<button class="filter action mayfair" id="Mayfair" type="button" name="Mayfair">Mayfair</button>
+						<button class="filter action moon" id="Moon" type="button" name="Moon">Moon</button>
+						<button class="filter action nashville" id="Nashville" type="button" name="Nashville">Nashville</button>
+						<button class="filter action perpetua" id="Perpetua" type="button" name="Perpetua">Perpetua</button>
+						<button class="filter action reyes" id="Reyes" type="button" name="Reyes">Reyes</button>
+						<button class="filter action rise" id="Rise" type="button" name="Rise">Rise</button>
+						<button class="filter action slumber" id="Slumber" type="button" name="Slumber">Slumber</button>
+						<button class="filter action toaster" id="Toaster" type="button" name="Toaster">Toaster</button>
+						<button class="filter action walden" id="Walden" type="button" name="Walden">Walden</button>
+						<button class="filter action willow" id="Willow" type="button" name="Willow">Willow</button>
+						<button class="filter action xpro2" id="X-pro-II" type="button" name="X-pro-II">X-pro II</button>
+						<button class="filter action sepia" id="Sepia" type="button" name="Sepia">Sepia</button>
+						<button class="filter action blur" id="Blur" type="button" name="Blur">Blur</button>
 					</div>
 				</li>
 				<li id='tab-upload' class='hidden'>Image Upload
@@ -101,7 +102,7 @@
 						foreach ($results as $img) { ?>
 							<div class='gallery-single-small' id='<?php echo $img['id']; ?>'>
 								<a href='single/<?php echo $img['id']; ?>'>
-									<img src='<?php echo $img['base_64']; ?>' alt='img-<?php echo $img['id']; ?>'/>
+									<img class='<?php echo filter($img['id']); ?>' src='<?php echo $img['base_64']; ?>' alt='img-<?php echo $img['id']; ?>'/>
 								</a>
 							</div>
 				<?php }

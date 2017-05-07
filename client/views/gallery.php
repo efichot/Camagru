@@ -5,6 +5,7 @@
 	$page = 'gallery';
 
 	require_once(__DIR__ . '/../../config/database.php');
+	require_once(__DIR__ . '/../../lib/imageLib.php');
 
 	//retrieve img
 	global $db;
@@ -22,7 +23,7 @@
 			foreach ($results as $photo) { ?>
 				<div class='gallery-single' id='<?php echo $photo['id'] ?>'>
 					<a href='single/<?php echo $photo['id'] ?>'>
-						<img src='<?php echo $photo['base_64'] ?>' alt='img-<?php echo $photo['id'] ?>'/>
+						<img class='<?php echo filter($photo['id']); ?>' src='<?php echo $photo['base_64'] ?>' alt='img-<?php echo $photo['id'] ?>'/>
 					</a>
 					<ul>
 				  <?php if ($photo['likes'] == 0) { ?>

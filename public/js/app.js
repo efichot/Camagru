@@ -17,6 +17,8 @@ var returnIMG = document.querySelector('#return-img');
 var webcam = true;
 // div logo
 var div = document.querySelector('#logo');
+//filters
+var filters = document.querySelectorAll('.filter');
 
 // Get access to the camera!
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -53,8 +55,12 @@ var data = {
 [].forEach.call(photos, function (single) {
 	single.addEventListener('click', function () {
 		data.logo.name = single.classList[2]; //name of object
-		data.logo.x = div.style.left;
-		data.logo.y = div.style.top;
+	})
+});
+
+[].forEach.call(filters, function (single) {
+	single.addEventListener('click', function () {
+		data.filter = single.classList[2]; //name of filter
 	})
 });
 
@@ -82,6 +88,8 @@ function isNoWebcam(error) {
 
 // Trigger photo take
 document.querySelector("#snap").addEventListener("click", function() {
+	data.logo.x = div.style.left;
+	data.logo.y = div.style.top;
 	if (webcam) {
 		context.drawImage(video, 0, 0, canvasWidth, canvasHeight);
 		data.img = canvas.toDataURL('image/jpeg', 1.0);
@@ -97,7 +105,7 @@ document.querySelector("#snap").addEventListener("click", function() {
 	xhr.send(JSON.stringify(data));
 	xhr.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) { //response ready
-			console.log(xhr.responseText);
+			//console.log(xhr.responseText);
 			returnIMG.src = xhr.responseText;
 			returnIMG.style.display = 'block';
 		}

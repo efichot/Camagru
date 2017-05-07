@@ -5,6 +5,7 @@
 	$page = 'user';
 
 	require_once(__DIR__ . '/../../config/database.php');
+	require_once(__DIR__ . '/../../lib/imageLib.php');
 
 	session_start();
 
@@ -29,7 +30,7 @@
 		foreach ($results as $photo) { ?>
 			<div class='gallery-single' id='<?php echo $photo['id'] ?>'>
 				<a href='single/<?php echo $photo['id'] ?>'>
-					<img src='<?php echo $photo['base_64'] ?>' alt='img-<?php echo $photo['id'] ?>'/>
+					<img class='<?php echo filter($photo['id']); ?>' src='<?php echo $photo['base_64'] ?>' alt='img-<?php echo $photo['id'] ?>'/>
 				</a>
 				<ul>
 					<li id='trash'><i class="fa fa-5x fa-trash" aria-hidden="true"></i></li>

@@ -58,11 +58,11 @@
 		$stmt->execute();
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-		$validateURL = 'http://' . $_SERVER['HTTP_HOST'] . $rootURI;
+		$validateURL = 'http://' . $_SERVER['HTTP_HOST'] . '/camagru/';
 
-		$subject = 'Camagru - Modifier votre mot de passe';
+		$subject = 'Camagru - Une de vos photo a reçu un commentaire.';
 		$message = 'Camagru - Une de vos photo a reçu un commentaire.
-		Bonjour, ' . $login . 'Une de vos photo a reçu un commentaire. Connectez vous vite ici' . $validateURL;
+		Bonjour, ' . $login . "\nUne de vos photo a reçu un commentaire. Connectez vous vite ici " . $validateURL;
 		$header = 'MIME-Version: 1.0' . '\r\n';
 		$header .= 'Content-type: text/html; charset=iso-8859-1' . '\r\n';
 		$header .= 'To: ' . $login . ' <' . $email . '>' . '\r\n';

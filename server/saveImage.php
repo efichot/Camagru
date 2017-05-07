@@ -17,6 +17,9 @@
 		imagedestroy($logo);
 	}
 
+	//if $data->filter is normal or NULL
+	$data->filter = (isset($data->filter)) ? $data->filter : '';
+
 	ob_start();
 	imagejpeg($img); //display image to browser
 	$imageData = ob_get_contents();
@@ -30,8 +33,9 @@
 	$stmt->execute();
 	$result = $stmt->fetch(PDO::FETCH_ASSOC);
 	$id = $result['id'];
-	$stmt = $db->prepare('INSERT INTO img (base_64, user_id) VALUES (:base64, :user_id)');
+	$stmt = $db->prepare('INSERT INTO img (base_64, user_id, filter) VALUES (:base64, :user_id, :filter)');
 	$stmt->bindParam(':base64', $base64);
 	$stmt->bindParam(':user_id', intval($id));
+	$stmt->bindParam(':filter', $data->filter);
 	$stmt->execute();
  ?>
