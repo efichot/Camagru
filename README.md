@@ -8,3 +8,5 @@ prendre une photo depuis sa webcam et admirer le résultat d’un montage digne
 de James Cameron.
 
 Toutes les images prises devront être publiques, likeables et commentables.
+
+Libraries interdites! :confetti_ball:
