@@ -14,9 +14,8 @@
 		$validateURL = 'http://' . $_SERVER['HTTP_HOST'] . '/camagru/validate/' . $login . '/' . $result['password'];
 
 		$subject = 'Camagru - Validez votre inscription';
-		$message = 'Camagru - Validez votre inscription
-			Bonjour,' . $login . '.
-			Bienvenue sur Camagru ! Pour valider votre inscription, cliquez ' .$validateURL;
+		$message = 'Camagru - Validez votre inscription.
+			Bonjour,' . $login . ' Bienvenue sur Camagru ! Pour valider votre inscription, cliquez ' .$validateURL;
 		$header = 'MIME-Version: 1.0' . '\r\n';
 		$header .= 'Content-type: text/html; charset=iso-8859-1' . '\r\n';
 		$header .= 'To: ' . $login . ' <' . $email . '>' . '\r\n';
