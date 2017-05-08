@@ -44,12 +44,13 @@ var rootURI = '/' + location.pathname.split('/')[1];
 	var index = 0;
 	var body = document.querySelector('.body');
 	var  nb = 10;
+	var wrap = document.querySelector('.gallery');
+	var yFooter = (wrap.scrollWidth > 800 ? 200 : -240); //mobile version
 	window.addEventListener('scroll', function (e) {
 		//console.log(scrollHeight);
-		var wrap = document.querySelector('.gallery');
 		var yOffset = this.pageYOffset;
 		var yWrap = wrap.scrollHeight;
-		if (yOffset >= yWrap && index < nb) {
+		if (yOffset >= (yWrap + yFooter) && index < nb) {
 			index++;
 			var xhr = new XMLHttpRequest();
 			xhr.open('POST', rootURI + '/server/ajaxNewImage.php', true);
