@@ -9,7 +9,7 @@
 
 	//retrieve img
 	global $db;
-	$stmt = $db->prepare('SELECT id, base_64, likes, comments_nb FROM img ORDER BY dates desc');
+	$stmt = $db->prepare('SELECT id, base_64, likes, comments_nb FROM img ORDER BY dates desc LIMIT 1');
 	$stmt->execute();
 	$results = $stmt->fetchall(PDO::FETCH_ASSOC);
 
@@ -17,7 +17,7 @@
 
  ?>
 
- <div class='gallery'>
+ <div class='gallery pagination'>
 	 <?php
 	 	if (isset($results)) {
 			foreach ($results as $photo) { ?>

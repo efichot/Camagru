@@ -12,7 +12,7 @@
 	<?php
 		require_once(__DIR__ . '/client/includes/head.php');
 	 ?>
-	<body>
+	<body class='body'>
 		<?php
 			require_once(__DIR__ . '/server/render.php');
 

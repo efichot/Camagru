@@ -45,7 +45,7 @@
 
 <div class='gallery'>
 	<div class='image' id='<?php echo $img['id']?>'>
-		<img src='<?php echo $img['base_64']; ?>' alt='img-<?php echo $img['id'];?>'/>
+		<img class='<?php echo $img['filter']; ?>' src='<?php echo $img['base_64']; ?>' alt='img-<?php echo $img['id'];?>'/>
 		<h3> &copy; <?php echo $user['login']; ?> </h3>
 		<ul>
 	  <?php if ($img['likes'] == 0) { ?>
