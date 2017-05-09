@@ -49,7 +49,7 @@
 				addRegistredUser($requestData[1], $requestData[2]);
 			}
 			//Change password
-			if ($requestData[0] === 'change-password') {
+			if ($requestData[0] === 'changePassword') {
 				changePassword($requestData[1], $requestData[2]);
 			}
 

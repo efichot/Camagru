@@ -4,7 +4,7 @@
 	function requireAuth() {
 		session_start();
 		if (!$_SESSION['is_connected']) {
-			redirect('/camagru/registred', 0);
+			redirect('/registred', 0);
 			exit();
 		}
 	}

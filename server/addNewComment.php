@@ -41,5 +41,5 @@
 		$email = retrieveLoginAndMail($result['user_id'])['email'];
 		sendInformativeMail($login, $email);
 	}
-	redirect('/camagru/single/' . $img_id, 0);
+	redirect('/single/' . $img_id, 0);
 ?>

@@ -9,5 +9,5 @@
 		}
 		session_destroy();
 	}
-	redirect('/Camagru/', 0);
+	redirect('/', 0);
  ?>

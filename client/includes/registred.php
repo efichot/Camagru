@@ -1,3 +1,7 @@
+<?php
+	require_once(__DIR__ . '/../../lib/routes.php');
+ ?>
+
 <!DOCTYPE html>
 <html>
 	<?php
@@ -7,7 +11,7 @@
 		<div class='registred success'>
 			<h2 style='color:#333;'>You need to be registred.</h2>
 			<p>
-				<a href="/Camagru/">Go back to home page</a>
+				<a href="<?php echo getRootURI(); ?>">Go back to home page</a>
 			</p>
 		</div>
 		<?php

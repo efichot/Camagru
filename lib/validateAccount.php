@@ -25,7 +25,7 @@
 			$stmt = $db->prepare('UPDATE users SET registred = 1 WHERE login = ?');
 			$stmt->bindParam(1, $login);
 			$stmt->execute();
-			redirect('/camagru', 0);
+			redirect('/', 0);
 		} else {
 			renderTemplate(__DIR__ . '/../client/includes/error.php');
 		}

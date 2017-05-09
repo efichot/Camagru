@@ -2,6 +2,7 @@
 	require_once(__DIR__ . '/../config/database.php');
 	require_once(__DIR__ . '/../lib/formCheck.php');
 	require_once(__DIR__ . '/../lib/function.php');
+	require_once(__DIR__ . '/../lib/redirect.php');
 
 	session_start();
 
@@ -11,10 +12,10 @@
 				$_SESSION['login'] = $_POST['login'];
 				$_SESSION['email'] = retrieveEmail($_POST['login']);
 				$_SESSION['is_connected'] = true;
-				header('Location: /Camagru/app');
+				redirect('/app', 0);
 				die();
 			}
 		}
 	}
-	header('Location: /Camagru/');
+	redirect('/', 0);
 ?>

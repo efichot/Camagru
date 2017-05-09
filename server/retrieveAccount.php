@@ -16,7 +16,7 @@
 			$stmt->execute();
 			$result = $stmt->fetch(PDO::FETCH_ASSOC);
 			sendRecoverMail($result['login'], $result['email']);
-			redirect('/Camagru', 0);
+			redirect('/', 0);
 		}
 	}
  ?>

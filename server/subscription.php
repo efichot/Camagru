@@ -34,8 +34,8 @@
 		$stmt->bindParam(':email', $_POST['email']);
 		$stmt->execute();
 		sendSubscriptionMail($_POST['login'], $_POST['email']);
-		redirect('/Camagru/success', 0);
+		redirect('/success', 0);
 	} else {
-		header('Location: /Camagru/');
+		redirect('/', 0);
 	}
  ?>

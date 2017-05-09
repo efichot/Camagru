@@ -5,13 +5,14 @@
 	function sendSubscriptionMail($login, $email) {
 		global $db;
 
+		$requestURI = array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1);
 		$query = 'SELECT password FROM users WHERE login = ?';
 		$stmt = $db->prepare($query);
 		$stmt->bindParam(1, $login);
 		$stmt->execute();
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-		$validateURL = 'http://' . $_SERVER['HTTP_HOST'] . '/camagru/validate/' . $login . '/' . $result['password'];
+		$validateURL = 'http://' . $_SERVER['HTTP_HOST'] . '/' . $requestURI[1] . '/validate/' . $login . '/' . $result['password'];
 
 		$subject = 'Camagru - Validez votre inscription';
 		$message = 'Camagru - Validez votre inscription.
@@ -27,6 +28,7 @@
 	function sendRecoverMail($login, $email) {
 		global $db;
 
+		$requestURI = array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1);
 		$rootURI = getRootURI();
 		$query = 'SELECT password FROM users WHERE login = ?';
 		$stmt = $db->prepare($query);
@@ -34,7 +36,7 @@
 		$stmt->execute();
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-		$validateURL = 'http://' . $_SERVER['HTTP_HOST'] . '/camagru/change-password/' . $login . '/' . $result['password'];
+		$validateURL = 'http://' . $_SERVER['HTTP_HOST'] . '/' . $requestURI[1] . '/changePassword/' . $login . '/' . $result['password'];
 
 		$subject = 'Camagru - Modifier votre mot de passe';
 		$message = 'Camagru - Modifier votre mot de passe
@@ -50,6 +52,7 @@
 	function sendInformativeMail($login, $email) {
 		global $db;
 
+	$requestURI = array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1);
 		$rootURI = getRootURI();
 		$query = 'SELECT password FROM users WHERE login = ?';
 		$stmt = $db->prepare($query);
@@ -57,7 +60,7 @@
 		$stmt->execute();
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-		$validateURL = 'http://' . $_SERVER['HTTP_HOST'] . '/camagru/';
+		$validateURL = 'http://' . $_SERVER['HTTP_HOST'] . '/' . $requestURI[1] . '/';
 
 		$subject = 'Camagru - Une de vos photo a reçu un commentaire.';
 		$message = 'Camagru - Une de vos photo a reçu un commentaire.

@@ -73,7 +73,7 @@ var rootURI = '/' + location.pathname.split('/')[1];
 							} else {
 										comments = '<li class="likes-nb"><i class="fa fa-4x fa-comment" aria-hidden="true"></i>' + response.comments_nb + '</li>';
 							}
-							wrap.innerHTML += '<a href="' + '/camagru/single/' + response.id + '"><img class= "' + response.filter + '" src="' + response.base_64 + '"/></a><ul>' + likes + comments + '</ul>';
+							wrap.innerHTML += '<a href="' + rootURI + '/single/' + response.id + '"><img class= "' + response.filter + '" src="' + response.base_64 + '"/></a><ul>' + likes + comments + '</ul>';
 						}
 					}
 				}
